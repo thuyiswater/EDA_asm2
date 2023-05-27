@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question 2</title>
+        <link rel="stylesheet" href="CRUD.css">
+    </head>
+
+    <header class="header"> 
+        <nav class="navbar">
+            <ul>
+                <li><a href="product_list.html" class="active-nav">Products</a></li>
+                <li><a href="about_us.html"></a></li>
+                <li><a href="booking.html"></a></li>
+                <li><a href="vehicle.html"></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <body>
+        <div class="container-general">
+            <div class="form-container">  
+                <form action="">
+                    <h2>Add New Product</h2>
+
+                    <div class="message-container">
+                        <p class="success-message"></p>
+                        <p class="error-message"></p>
+                    </div>
+
+                    <label for="name">Product Name:</label>
+                    <input type="text" id="name">
+
+                    <label for="type">Product Type:</label>
+                    <select id="type">
+                        <option value="Storable Product">Storable Product</option>
+                        <option value="Sale">Sale</option>
+                    </select>
+
+                    <label for="category">Product Category:</label>
+                    <select id="category">
+                        <option value="Finished Goods">Finished Goods</option>
+                        <option value="Paint">Paint</option>
+                        <option value="Component">Component</option>
+                        <option value="Subassembly">Subassembly</option>
+                    </select>
+
+                    <label for="price">Sale Price:</label>
+                    <input type="text" id="price">
+
+
+                    <label for="unit">Unit of Measure:</label>
+                    <select id="unit">
+                        <option value="Unit(s)">Unit(s)</option>
+                        <option value="Unit(s)">Liter(s)</option>
+                    </select>
+
+                    <!-- <label for="purchase">Purchase Unit of Measure:</label>
+                    <select id="purchase">
+                        <option value="Unit(s)">Unit(s)</option>
+                        <option value="Unit(s)"></option>
+                    </select> -->
+
+                    <div class="button-group">
+                        <button type="button" onclick="window.location.href='production_list.html'" class="go-back-button">Discard</button>
+                        <button type="submit" name="create-button" value="create-button"class="create-button">Save</button>
+                        <button type="button" onclick="window.location.href='materials.html'" class="material-button">Bill of Material</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+        <script>
+            let form = document.querySelector('form');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                document.querySelector('.error-message').textContent = '';
+                document.querySelector('.success-message').textContent = '';
+
+                let name = document.querySelector('#name').value;
+                let typw = document.querySelector('#type').value;
+                let category = document.querySelector('#category').value;
+                let price = document.querySelector('#price').value;
+                let measure = document.querySelector('#measure').value;
+                // let purchase = document.querySelector('#purchase_unit').value;
+
+                    const newProduct = {
+                        productName: name,
+                        productType: type,
+                        productCategory: category,
+                        productPrice: price,
+                        productMesure: measure,
+                        // productPurchaseUnit: purchase,
+                        productImage: "none"
+                    };
+
+                    addProduct(newProduct);
+            });
+
+        </script>
+    </body>
+</html>

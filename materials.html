@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question 2</title>
+        <link rel="stylesheet" href="CRUD.css">
+    </head>
+
+    <header class="header"> 
+        <nav class="navbar">
+            <ul>
+                <li><a href="product_list.html" class="active-nav">Products</a></li>
+                <li><a href="about_us.html"></a></li>
+                <li><a href="booking.html"></a></li>
+                <li><a href="vehicle.html"></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <body>
+        <div class="container-general">
+            <h2>Bill of Materials</h2>
+            <div class="material-list">
+                <table>
+                    
+                </table>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+        <script>
+            let form = document.querySelector('form');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                document.querySelector('.error-message').textContent = '';
+                document.querySelector('.success-message').textContent = '';
+
+                let name = document.querySelector('#name').value;
+                let typw = document.querySelector('#type').value;
+                let category = document.querySelector('#category').value;
+                let price = document.querySelector('#price').value;
+                let measure = document.querySelector('#measure').value;
+                // let purchase = document.querySelector('#purchase_unit').value;
+
+                    const newProduct = {
+                        productName: name,
+                        productType: type,
+                        productCategory: category,
+                        productPrice: price,
+                        productMesure: measure,
+                        // productPurchaseUnit: purchase,
+                        productImage: "none"
+                    };
+
+                    addProduct(newProduct);
+            });
+
+        </script>
+    </body>
+</html>
